@@ -1,0 +1,59 @@
+[
+  {
+    "firstName": "Yaki1",
+    "lastName": "Surname",
+    "email": "yaki@gmail.com",
+    "country": "Canada",
+    "linkedIn": "bprathamesh",
+    "visas": [
+      "O-1",
+      "EB-1A",
+      "EB-2 NIW"
+    ],
+    "additionalInfo": "qwerty",
+    "status": "REACHED_OUT"
+  },
+  {
+    "firstName": "Prathamesh",
+    "lastName": "Prathamesh",
+    "email": "Prathamesh@gmail.com",
+    "country": "India",
+    "linkedIn": "bprathamesh",
+    "visas": [
+      "O-1",
+      "EB-1A",
+      "EB-2 NIW"
+    ],
+    "additionalInfo": "qwerty",
+    "status": "REACHED_OUT"
+  },
+  {
+    "firstName": "Prat",
+    "lastName": "Prath",
+    "email": "yaki@gmail.com",
+    "country": "Canada",
+    "linkedIn": "bprathamesh",
+    "visas": [
+      "EB-1A",
+      "EB-2 NIW"
+    ],
+    "additionalInfo": "qwertyqwetrytu",
+    "resume": {},
+    "status": "PENDING"
+  },
+  {
+    "firstName": "Yaki12",
+    "lastName": "Surname",
+    "email": "yaki@gmail.com",
+    "country": "India",
+    "linkedIn": "bprathamesh",
+    "visas": [
+      "O-1",
+      "EB-1A",
+      "EB-2 NIW"
+    ],
+    "additionalInfo": "qwertr",
+    "resume": null,
+    "status": "PENDING"
+  }
+]
