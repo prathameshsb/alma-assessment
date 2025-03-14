@@ -58,18 +58,22 @@ export default function AdminPage() {
   };
 
   const filteredLeads = useMemo(() => {
-    return leads
-      .filter((lead) =>
-        Object.values(lead).join(" ").toLowerCase().includes(searchTerm.toLowerCase())
-      )
-      .filter((lead) => (statusFilter ? lead.status === statusFilter : true));
-  }, [leads, searchTerm, statusFilter]);
+    return sortedLeads.filter((lead) => {
+      const matchesSearch = Object.values(lead)
+        .join(" ")
+        .toLowerCase()
+        .includes(searchTerm.toLowerCase());
+
+      const matchesStatus = statusFilter ? lead.status === statusFilter : true;
+
+      return matchesSearch && matchesStatus;
+    });
+  }, [sortedLeads, searchTerm, statusFilter]);
 
   const totalPages = Math.ceil(filteredLeads.length / leadsPerPage);
   const paginatedLeads = useMemo(() => {
-    return sortedLeads.slice((currentPage - 1) * leadsPerPage, currentPage * leadsPerPage);
-  }, [sortedLeads, currentPage, leadsPerPage]);
-
+    return filteredLeads.slice((currentPage - 1) * leadsPerPage, currentPage * leadsPerPage);
+  }, [filteredLeads, currentPage, leadsPerPage]);
 
   const formattedDates = useMemo(() => {
     const newFormattedDates: Record<number, string> = {};
@@ -108,7 +112,13 @@ export default function AdminPage() {
               onChange={(e) => setSearchTerm(e.target.value)}
             />
           </SearchContainer>
-          <StyledSelect value={statusFilter} onChange={(e) => setStatusFilter(e.target.value)}>
+          <StyledSelect
+            value={statusFilter}
+            onChange={(e) => {
+              const selectedStatus = e.target.value;
+              setStatusFilter(selectedStatus);
+            }}
+          >
             <option value="">All Statuses</option>
             <option value="PENDING">Pending</option>
             <option value="REACHED_OUT">Reached Out</option>
